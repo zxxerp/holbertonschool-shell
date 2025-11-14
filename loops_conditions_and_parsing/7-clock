@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
-# Displays hours 0-12 and minutes 1-59, first 70 lines, safely with head
+# Displays hours 0-12 and minutes 1-59
 
 hour=0
 while [ "$hour" -le 12 ]; do
+    echo "Hour: $hour"             # выводим текущий час
     minute=1
     while [ "$minute" -le 59 ]; do
-        echo "$hour:$minute" || break   # если pipe закрыт, прекращаем цикл
+        echo "$minute"             # выводим минуты
         minute=$((minute + 1))
     done
     hour=$((hour + 1))
-done | head -n 70
+done
