@@ -2,6 +2,6 @@
 # Repeats the loop UNTIL the condition becomes true
 i=1
 until [ "$i" -gt 10 ]; do
-    echo "Best SchooL"
+    echo "Best School"
     i=$((i + 1))
 done
