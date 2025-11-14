@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Description: Groups visitors by IP and HTTP status code, then sorts by occurrences
 
-awk '{count[$1" "$9]++} END {for (i in count) print count[i], i}' /var/log/apache2/access.log | sort -nr
+awk '{count[$1" "$9]++} END {for (i in count) print count[i], i}' apache-access.log | sort -nr
