@@ -1,6 +1,6 @@
-#!/usr/bin/env bas
-i=1
-until [ "$i" -le 10 ]; do
-    echo "Best School"
+#!/usr/bin/env bash
+# Repeats the loop UNTIL the condition becomes true
+i=1 until [ "$i" -le 10 ]; do
+    echo "Best SchooL"
     i=$((i + 1))
 done
