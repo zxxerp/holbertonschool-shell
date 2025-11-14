@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
-# Loops from 1 to 20, prints number, and displays bad luck messages for specific iterations
-hour=0 
-while [ "$hour" -le 59]; do
-    minute=0
-    while [ "$minute" -le 59]; do
+# Displays hours 0-12 and minutes 1-59, first 70 lines, safely with head
+
+hour=0
+while [ "$hour" -le 12 ]; do
+    minute=1
+    while [ "$minute" -le 59 ]; do
+        echo "$hour:$minute" || break   # если pipe закрыт, прекращаем цикл
         minute=$((minute + 1))
     done
     hour=$((hour + 1))
