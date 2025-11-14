@@ -1,4 +1,2 @@
 #!/usr/bin/env bash
-# This script groups visitors by IP and HTTP code, counts occurrences, and sorts them
-
-awk '{count[$1" "$9]++} END {for (key in count) print count[key], key}' apache-access.log | sort -rn | sed 's/^ *//'
+awk '{count[$1" "$9]++} END {for (key in count) printf "%d %s\n", count[key], key}' apache-access.log | sort -rn
