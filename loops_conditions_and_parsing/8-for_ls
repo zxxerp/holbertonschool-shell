@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Displays current directory files in a list, showing only the part after the first dash
+
+for file in *; do                  
+    if [[ "$file" == *-* ]]; then     
+        echo "${file#*-}"                   
+    else
+        echo "$file"                       
+    fi
+done
+
