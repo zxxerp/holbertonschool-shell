@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# a Bash script that stops 8-beheaded_process .
+pid=$(pgrep -f 8-beheaded_process)
+if [ -n "$pid" ]; then
+    kill "$pid"
+fi
+
