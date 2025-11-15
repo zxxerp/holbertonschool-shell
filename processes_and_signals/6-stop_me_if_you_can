@@ -1,13 +1,4 @@
 #!/usr/bin/env bash
 # Stops 4-to_infinity_and_beyond without kill/killall/pkill
-
-for pid in /proc/[0-9]*; do
-    if [ -f "$pid/comm" ]; then
-        name=$(cat "$pid/comm")
-        if [[ $name == 4-to_infinity_and_beyond ]]; then
-            # Отправляем SIGTERM через файловую систему
-            echo -n 15 > "$pid"/task/"$pid"/attr/oom_score_adj  2>/dev/null
-        fi
-    fi
-done
+pkill -f 4-to_infinity_and_beyond
 
