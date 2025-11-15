@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
-# Description: Groups visitors by IP and HTTP status code, then sorts by occurrences
-#ifnifnf
-awk '{print $1 " " $9}' apache-access.log | sort | uniq-c | sort -rn
+# Script that groups and counts occurrences of IP and HTTP status from Apache access log
+
+awk '{print $1, $9}' apache-access.log \
+  | sort \
+  | uniq -c \
+  | sort -nr
