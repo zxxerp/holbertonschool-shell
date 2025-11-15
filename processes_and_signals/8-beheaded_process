@@ -3,7 +3,7 @@
 pids=$(pgrep -f 7-highlander)
 if [ -n "$pids" ]; then
     for pid in $pids; do
-        kill "$pid"
+        kill -9 "$pid"
     done
 fi
 
