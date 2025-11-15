@@ -1,24 +1,28 @@
 #!/usr/bin/env bash
 # Script that demonstrates PID file and signal handling
+#!/usr/bin/env bash
+# Script that creates a PID file and handles signals
 
-echo $$ > /var/run/myscript.pid
+PID_FILE="/var/run/myscript.pid"
 
-handle_sigterm() {
-    echo "I hate the kill command"
-}
-
-handle_sigint() {
-    echo "Y U no love me?!"
-}
-
-cleanup() {
-    rm -f /var/run/myscript.pid
+handle_exit() {
+    rm -f "$PID_FILE"
     exit 0
 }
 
-trap 'handle_sigterm' SIGTERM
-trap 'handle_sigint' SIGINT
-trap 'cleanup' SIGQUIT SIGTERM
+handle_term() {
+    echo "I hate the kill command"
+}
+
+handle_int() {
+    echo "Y U no love me?!"
+}
+
+trap handle_exit SIGTERM SIGQUIT
+trap handle_term SIGTERM
+trap handle_int SIGINT
+
+echo $$ > "$PID_FILE"
 
 while true; do
     echo "To infinity and beyond"
