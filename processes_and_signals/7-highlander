@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# Script that prints "To infinity and beyond" indefinitely
 handle_sigterm() {
     echo "I am invincible!!!"
 }
