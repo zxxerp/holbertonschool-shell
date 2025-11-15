@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # Init script to manage the manage_my_process program
+#!/usr/bin/env bash
+# Init script to manage the manage_my_process program
 
 PID_FILE="/var/run/my_process.pid"
-SCRIPT_PATH="$(pwd)/manage_my_process"  # относительный путь к manage_my_process
+SCRIPT_PATH="$(pwd)/manage_my_process" 
 
 case "$1" in
     start)
@@ -14,10 +16,8 @@ case "$1" in
         if [ -f "$PID_FILE" ]; then
             kill "$(cat "$PID_FILE")"
             rm -f "$PID_FILE"
-            echo "manage_my_process stopped"
-        else
-            echo "manage_my_process not running"
         fi
+        echo "manage_my_process stopped"
         ;;
     restart)
         if [ -f "$PID_FILE" ]; then
